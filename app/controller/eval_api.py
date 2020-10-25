@@ -27,4 +27,4 @@ class EvalAPI(API):
         return result
 
 
-api.add_resource(EvalAPI, '/eval/')
+api.add_resource(EvalAPI, '/eval')

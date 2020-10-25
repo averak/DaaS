@@ -3,7 +3,7 @@ from flask_restful import Resource, Api
 from .api import API
 from engine.api import *
 
-app = Blueprint('reading', __name__)
+app = Blueprint('katakanize', __name__)
 api = Api(app)
 
 
@@ -13,18 +13,18 @@ def add_header(res):
     return res
 
 
-class ReadingAPI(API):
+class KatakanizeAPI(API):
     def _args_validation(self, args):
         return 'dajare' in args
 
     def _processing(self, args):
         result = {
-            'reading': None,
+            'katakana': None,
         }
 
-        result['reading'] = katakanizer.katakanize(args['dajare'])
+        result['katakana'] = katakanizer.katakanize(args['dajare'])
 
         return result
 
 
-api.add_resource(ReadingAPI, '/reading/')
+api.add_resource(KatakanizeAPI, '/katakanize')

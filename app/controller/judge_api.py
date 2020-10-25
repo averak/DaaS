@@ -31,4 +31,4 @@ class JudgeAPI(API):
         return result
 
 
-api.add_resource(JudgeAPI, '/judge/')
+api.add_resource(JudgeAPI, '/judge')
